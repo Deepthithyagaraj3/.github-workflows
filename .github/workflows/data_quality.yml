@@ -21,7 +21,6 @@ jobs:
       - name: Install dependencies
         run: |
           pip install pandas
-          pip install sqlite3
           pip install great_expectations
 
       - name: List directory contents (debug)
