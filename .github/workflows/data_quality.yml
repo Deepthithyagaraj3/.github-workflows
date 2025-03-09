@@ -1,10 +1,14 @@
 name: Data Quality Check
 
-on: [push]
+on:
+  push:
+    branches:
+      - main  # Trigger when code is pushed to the main branch
 
 jobs:
   quality-check:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -15,7 +19,15 @@ jobs:
           python-version: '3.9'
 
       - name: Install dependencies
-        run: pip install pandas
+        run: |
+          pip install pandas
+          pip install sqlite3
+          pip install great_expectations
+
+      - name: List directory contents (debug)
+        run: |
+          pwd  # Print the current working directory
+          ls -la  # List all files in the current directory
 
       - name: Run Data Quality Tests
-        run: python data_quality_checks.py
+        run: python data_quality_checks.py  # Run script from the root folder
