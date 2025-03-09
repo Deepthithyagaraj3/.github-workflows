@@ -28,5 +28,5 @@ jobs:
           pwd  # Print the current working directory
           ls -la  # List all files in the current directory
 
-      - name: Run Data Quality Tests
-        run: python ./data_quality_checks.py  # Use the correct relative path to the script
+      - name: Change working directory
+        run: cd .. && python data_quality_checks.py  # Move up one level to the root directory and run the script
