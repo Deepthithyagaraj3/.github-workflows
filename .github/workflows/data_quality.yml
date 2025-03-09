@@ -23,10 +23,12 @@ jobs:
           pip install pandas
           pip install great_expectations
 
-      - name: List directory contents (debug)
+      - name: List all files in the repository
         run: |
-          pwd  # Print the current working directory
-          ls -la  # List all files in the current directory
+          echo "Current Directory:"
+          pwd  # Print current directory
+          echo "Listing files in the repository:"
+          ls -la  # List all files in the repository
 
-      - name: Change working directory
-        run: cd .. && python data_quality_checks.py  # Move up one level to the root directory and run the script
+      - name: Run Data Quality Tests
+        run: python data_quality_checks.py  # Run the script using relative path
