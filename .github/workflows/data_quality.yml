@@ -29,4 +29,4 @@ jobs:
           ls -la  # List all files in the current directory
 
       - name: Run Data Quality Tests
-        run: python ../data_quality_checks.py  # Reference the file from the root folder
+        run: python ../data_quality_checks.py  # Use relative path to script in the root folder
